@@ -1,7 +1,9 @@
 package net.hgve.spawners.listener;
 
 import org.bukkit.Material;
+import org.bukkit.block.CreatureSpawner;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,11 +27,18 @@ public class SpawnerBreakListener implements Listener {
 
         ItemStack tool = player.getInventory().getItemInMainHand();
 
+        // check for allowed tools
+
         if (!(tool.containsEnchantment(Enchantment.SILK_TOUCH))) {
             return;
         }
 
         // spawner mob storing
+        CreatureSpawner spawner = (CreatureSpawner) event.getBlock();
+
+        EntityType spawnerEntity = spawner.getSpawnedType();
+
+
 
     }
 
