@@ -21,7 +21,7 @@ public class SpawnerBreakListener implements Listener {
 
         Player player = event.getPlayer();
 
-        if (!(player.hasPermission("spawners.silktouch"))) {
+        if (!(player.hasPermission("spawners.break"))) {
             return;
         }
 
