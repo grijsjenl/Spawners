@@ -1,5 +1,6 @@
 package net.hgve.spawners.listener;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.CreatureSpawner;
 import org.bukkit.enchantments.Enchantment;
@@ -9,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class SpawnerBreakListener implements Listener {
 
@@ -37,8 +39,13 @@ public class SpawnerBreakListener implements Listener {
         CreatureSpawner spawner = (CreatureSpawner) event.getBlock();
 
         EntityType spawnerEntity = spawner.getSpawnedType();
+        ItemStack spawnerItem = new ItemStack(Material.SPAWNER);
 
+        // maybe a better way?
+        event.setCancelled(true);
+        event.getBlock().setType(Material.AIR);
 
+        // way to drop spawner as item
 
     }
 
